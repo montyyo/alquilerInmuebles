@@ -62,13 +62,76 @@ public class Inmobiliaria
         reservas.add(reserva);
     }
      
+    /**
+     * consultar reservas
+     * 
+     */
+    public void reservasAgosto()
+    {
+        for(Reserva reserv:reservas)
+        {
+            System.out.println(reserv);
+        
+        }
+    }
           
     /**
      * consultar si esta libre un inmueble 
      */
-    public void consultarDisponibles(int llegada,int salida,int pesonas)
-    {
-    
+    public void consultarDisponibles(int llegada,int salida,int personas)
+    {   
+        ArrayList<Inmueble> libres= new ArrayList<>();
+        libres=(ArrayList)inmuebles.clone();
+        ArrayList<Inmueble> ocupados= new ArrayList<>();
+       //obtenemos los inmuebles que no podemos alquilar
+       for(Reserva reserv:reservas)
+        {
+            if(reserv.getDiaLlegada()==llegada && reserv.getDiaSalida()==salida)
+            {
+                int id=reserv.getId();
+                for(Inmueble inmueb:inmuebles)
+                {
+                        if(inmueb.getId() == id)
+                        {
+                            ocupados.add(inmueb);
+                        }
+                        
+                }
+            }
+        
+        }
+        
+        
+        
+       //eliminamos los inmuebles ocupados 
+       for(Inmueble inmueb:libres)
+        {
+            
+            for(Inmueble reservado:ocupados)
+            {
+                if(inmueb.getId() != reservado.getId())
+                {
+                    libres.remove(inmueb);
+                }
+                          
+                   
+               
+            }
+        }
+        
+        
+        //comprobamos de los libres cuales pueden albergar a las personas
+        for(Inmueble libre:libres)
+            {
+                if(libre.getNumMaxOcupantes() > personas)
+                {
+                    System.out.println(libre);
+                }
+                
+            }
+            
         
     }
+    
+   
 }

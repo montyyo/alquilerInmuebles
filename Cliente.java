@@ -23,4 +23,12 @@ public class Cliente
     
         sabadel.verInmuebles();
     }
+    
+    public void consultarLibresFecha(int llegada,int salida,int personas)
+    {
+    
+        sabadel.consultarDisponibles(llegada, salida, personas);
+    }
+    
+    
 }
