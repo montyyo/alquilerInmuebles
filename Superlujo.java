@@ -13,7 +13,7 @@ public class Superlujo extends Casa
    private static int MAXDPISCINAS=6;
    private static int MINHABITAIONES=10;
    private static int MAXHABITAIONES=22;
-
+   
     /**
      * Constructor for objects of class Superlujo
      */
@@ -57,7 +57,17 @@ public class Superlujo extends Casa
          return super.precioNoche()+ plus ;
      } 
     
-  
+  /**
+   * mantenimiento
+   */
+  public boolean mantenimiento(int i)
+  {
+      boolean alquilar=true;
+      if(i == 10 || i==20 ||i==25)
+      alquilar = false;
+      return alquilar;
+  }
+     
    /**
     * devuelve los datos 
     * @return string datos 

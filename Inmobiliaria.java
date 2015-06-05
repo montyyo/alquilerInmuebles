@@ -59,10 +59,16 @@ public class Inmobiliaria
      */
     public void addReserva(Reserva reserva)
     {
-    
+        reservas.add(reserva);
     }
      
           
+    /**
+     * consultar si esta libre un inmueble 
+     */
+    public void consultarDisponibles(int llegada,int salida,int pesonas)
+    {
     
-    
+        
+    }
 }

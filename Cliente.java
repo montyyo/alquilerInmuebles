@@ -18,7 +18,7 @@ public class Cliente
     }
 
   
-    public void inmueblesInmobiliaria()
+    public void consultarInmueblesInmobiliaria()
     {
     
         sabadel.verInmuebles();
