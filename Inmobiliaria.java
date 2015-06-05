@@ -62,6 +62,21 @@ public class Inmobiliaria
     }
      
     /**
+     * devuelve un objeto por su id
+     */
+    public Inmueble getInmueble(int id)
+    {
+        Inmueble find=null;
+        for(int a = 0; a < inmuebles.size();a++)
+        {
+            if(inmuebles.get(a).getId() == id)
+            find = inmuebles.get(a);
+        
+        }
+        return find;
+    }
+    
+    /**
      * consultar reservas
      * 
      */
@@ -162,8 +177,18 @@ public class Inmobiliaria
      */
    public void ordenarPorNumeroReservas()
    {
+             ArrayList<Inmueble> numReservas= new ArrayList<>();
              
-       
+             
+             
+             for(int a =0;a<reservas.size();a++)
+             {  
+                int id=reservas.get(a).getId();
+                
+                
+             }
+             
+             
     
    }
    
