@@ -1,33 +1,63 @@
-
+import java.util.Random;
 /**
  * Write a description of class Superlujo here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Superlujo
+public class Superlujo extends Casa
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    private int numPiscinas;
+    private int numHabitaciones;
+   private static int MINDPISCINAS=1;
+   private static int MAXDPISCINAS=6;
+   private static int MINHABITAIONES=10;
+   private static int MAXHABITAIONES=22;
 
     /**
      * Constructor for objects of class Superlujo
      */
     public Superlujo()
     {
-        // initialise instance variables
-        x = 0;
+        //con dos random GENERAMOS EL NUMERO DE HABITACIONES Y PISCIONAS 
+        
+         Random rnd=new Random();
+       numPiscinas=rnd.nextInt(MAXDPISCINAS)+MINDPISCINAS;
+       numHabitaciones=rnd.nextInt(MAXHABITAIONES)+MINHABITAIONES;
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+   /**
+    * devuelve el nuemro de piscinas
+    * @return int piscinas
+    */
+   public int getNumPiscinas()
+   {
+       return numPiscinas;
+   }
+   
+   /**
+    * devuelve el numero de habitaciones de la casa
+    * @return int num habitaciones 
+    */
+   public int getNumeroHabitaciones()
+   {
+       return numHabitaciones;
     }
+  
+   /**
+    * devuelve los datos 
+    * @return string datos 
+    */
+   public String toString()
+   {
+       return super.toString() + " Numero piscinas: " + numPiscinas+
+                " Numero de Habitaciones : " + numHabitaciones;
+   }
+   
+   
+   
+   
+   
+   
+   
 }

@@ -5,7 +5,7 @@ import java.util.Random;
  * @author marco
  * @version 1-5/6/2015
  */
-public class Inmueble
+public abstract class Inmueble
 {
    private int id;
    private int distanciaCentro;

@@ -1,33 +1,64 @@
-
+import java.util.Random;
 /**
  * Write a description of class Piso here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Piso
+public class Piso extends Inmueble
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
+   
+    private boolean terraza;
+    private boolean ascensor;
+    
     /**
      * Constructor for objects of class Piso
      */
     public Piso()
     {
-        // initialise instance variables
-        x = 0;
+        terraza=false;
+        ascensor=true;
+        
+        //con dos random evaluamos si hay o no terraza, en principio no las hay en los pisos
+         Random rnd=new Random();
+         int hayTerraza= rnd.nextInt(2);
+         int hayAscensor= rnd.nextInt(2);
+        if(hayTerraza == 1)
+        terraza = true;
+        
+        if(hayAscensor==1)
+        ascensor=true;
+        
+        
+    }
+    
+    /**
+     * devuelve si hay terraza o no
+     * @return boolean hay o no terraza
+     */
+    public boolean getTerraza()
+    {
+    
+        return terraza;
+    }
+    
+     /**
+     * devuelve si hay ascensor o no
+     * @return boolean hay o no ascenso0r
+     */
+    public boolean getAscensor()
+    {
+    
+        return ascensor;
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
+     * devuelve los datos del piso
+     * @return string datos del piso
      */
-    public int sampleMethod(int y)
+    public String toString()
     {
-        // put your code here
-        return x + y;
+        return super.toString() + " Terraza: " + terraza+ " Ascensor: " + ascensor;
     }
+    
 }

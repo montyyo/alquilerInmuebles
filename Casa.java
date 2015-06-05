@@ -1,33 +1,62 @@
-
+import java.util.Random;
 /**
  * Write a description of class Casa here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Casa
+public class Casa extends Inmueble
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
+   
+    private boolean jardin;
+    private boolean tranquila;
     /**
      * Constructor for objects of class Casa
      */
     public Casa()
     {
-        // initialise instance variables
-        x = 0;
+        jardin=false;
+       tranquila=true;
+        
+        //con dos random evaluamos si hay o nojardin y la tranquilidad
+        // del inmueble, en principio no las hay en los pisos
+         Random rnd=new Random();
+         int hayJardin= rnd.nextInt(2);
+         int hayTranquila= rnd.nextInt(2);
+        if(hayJardin == 1)
+        jardin= true;
+        
+        if(hayTranquila==1)
+        tranquila=true;
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
+     * devuelve si hay jardin o no
+     * @return boolean hay o no jardin
      */
-    public int sampleMethod(int y)
+    public boolean getJardin()
     {
-        // put your code here
-        return x + y;
+    
+        return jardin;
     }
+    
+     /**
+     * devuelve si hay tranquilidad o no
+     * @return boolean hay o no tranquilidad
+     */
+    public boolean getTranquila()
+    {
+    
+        return tranquila;
+    }
+
+    /**
+     * devuelve los datos del piso
+     * @return string datos del piso
+     */
+    public String toString()
+    {
+        return super.toString() + " Tiene Jardin: " + jardin+ " Situado en zona tranquila : " + tranquila;
+    }
+    
 }
