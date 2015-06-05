@@ -9,15 +9,14 @@ public class Inmobiliaria
 {
    private ArrayList<Inmueble> inmuebles;
    private int NUMINMUEBLES=5;//minmo numero de inmuebles de cada tipo
-   
-   
    private ArrayList<Reserva> reservas;
-
+   
     /**
      * Constructor for objects of class Inmobiliaria
      */
     public Inmobiliaria()
     {
+      
       inmuebles=new ArrayList<>();
       reservas=new ArrayList<>();
       
@@ -80,8 +79,10 @@ public class Inmobiliaria
      */
     public void consultarDisponibles(int llegada,int salida,int personas)
     {   
+        
+        
         ArrayList<Inmueble> libres= new ArrayList<>();
-        libres=(ArrayList)inmuebles.clone();
+        
         ArrayList<Inmueble> ocupados= new ArrayList<>();
        //obtenemos los inmuebles que no podemos alquilar
        for(Reserva reserv:reservas)
@@ -100,38 +101,81 @@ public class Inmobiliaria
             }
         
         }
+       
+       for(int a = 0; a < inmuebles.size();a++)
+       {
         
-        
-        
-       //eliminamos los inmuebles ocupados 
-       for(Inmueble inmueb:libres)
-        {
+           for(int i = 0 ; i < ocupados.size();i++)
+           {
             
-            for(Inmueble reservado:ocupados)
-            {
-                if(inmueb.getId() != reservado.getId())
-                {
-                    libres.remove(inmueb);
+               if(inmuebles.get(a).getId() != ocupados.get(i).getId())
+               {
+                   libres.add(inmuebles.get(a));
                 }
-                          
-                   
-               
             }
-        }
+           
+       }
         
-        
-        //comprobamos de los libres cuales pueden albergar a las personas
+        //comprobamos de los libres cuales pueden albergar a las personas indicadas
         for(Inmueble libre:libres)
             {
                 if(libre.getNumMaxOcupantes() > personas)
                 {
-                    System.out.println(libre);
+                    System.out.println(libre + "alquiler por noche:" + libre.precioNoche() + 
+                    "total estancia: " + libre.precioNoche()*(llegada - (salida-1)));
                 }
                 
             }
             
+            
+        
         
     }
+   
+    /**
+     * reserva un inmueble si esta libre en unas fechas
+     */
+    public void realizarReserva(int llegada,int salida,int personas,int idInmueble,int dniInquilino)
+    {   
+        //con un booleano conprobamos si esta libre para las fechas indicadas
+        boolean realizarReserva=true;
+        for(Reserva reserva:reservas)
+        {
+        
+            if(reserva.getId() == idInmueble && reserva.getDiaLlegada()== llegada && reserva.getDiaSalida()==salida)
+            {
+               realizarReserva=false;
+            }
+        }
+        
+        //si esta libre hacemos la reserva
+        if(realizarReserva=true)
+        {
+        
+            addReserva(new Reserva( idInmueble, llegada, salida ,personas, dniInquilino));
+            
+        }
+    }
     
+    /**
+     * visualizar los inmuebles ordenados por numero de reservas
+     */
+   public void ordenarPorNumeroReservas()
+   {
+             
+       
+    
+   }
+   
+   
+   /**
+    * ordenamos por ingresos los inmuebles
+    */
+   
+   public void ordenarPorIngresos()
+   {
+    
+   }
+   
    
 }

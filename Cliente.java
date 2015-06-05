@@ -31,4 +31,9 @@ public class Cliente
     }
     
     
+    public void realizarLaReserva(int llegada,int salida,int personas,int idInmueble,int dniInquilino)
+    {
+        sabadel.realizarReserva(llegada,salida,personas,idInmueble,dniInquilino);
+    }
+    
 }
