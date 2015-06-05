@@ -59,12 +59,22 @@ public abstract class Inmueble
     }
     
     /**
+     *devuelve el precio del alquiler por noche
+     *return float
+     */
+     public float precioNoche()
+     {
+         return (numOcupantes*100)/distanciaCentro;
+     }
+    
+    
+    /**
      * devuelve los datos del inmueble
      * @return string datos del inmueble
      */
    public String toString()
    {
-       return "ID :" + id+"\t Distancia del centro: " + distanciaCentro+
+       return "ID :" + id+"\t Distancia del centro: " + distanciaCentro+ " km " +
                "\t nuemero max. ocupantes: " + numOcupantes;
     
     }

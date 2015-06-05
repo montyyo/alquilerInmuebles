@@ -49,7 +49,19 @@ public class Casa extends Inmueble
     
         return tranquila;
     }
-
+    /**
+     *devuelve el precio del alquiler por noche
+     *return float
+     */
+     public float precioNoche()
+     {
+         int plus=1;
+         if(tranquila == true || jardin==true)
+            plus = 2;
+         return super.precioNoche() *plus;
+     }
+     
+     
     /**
      * devuelve los datos del piso
      * @return string datos del piso

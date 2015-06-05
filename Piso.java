@@ -51,14 +51,28 @@ public class Piso extends Inmueble
     
         return ascensor;
     }
-
+    
+    
+    /**
+     *devuelve el precio del alquiler por noche
+     *return float
+     */
+     public float precioNoche()
+     {
+         int plus=1;
+         if(ascensor == true || terraza==true)
+            plus = 2;
+         return super.precioNoche() *plus;
+     }
+     
+     
     /**
      * devuelve los datos del piso
      * @return string datos del piso
      */
     public String toString()
     {
-        return super.toString() + " Terraza: " + terraza+ " Ascensor: " + ascensor;
+        return super.toString() + " Terraza: " + terraza+ " Ascensor: " + ascensor ;
     }
     
 }

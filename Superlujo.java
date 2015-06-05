@@ -43,6 +43,20 @@ public class Superlujo extends Casa
    {
        return numHabitaciones;
     }
+    
+   /**
+     *devuelve el precio del alquiler por noche
+     *return float
+     */
+     public float precioNoche()
+     {
+          int plusTranquila=1;
+         if(super.getTranquila() == true)
+            plusTranquila = 2;
+         float plus= numPiscinas*numHabitaciones*plusTranquila*100;
+         return super.precioNoche()+ plus ;
+     } 
+    
   
    /**
     * devuelve los datos 
